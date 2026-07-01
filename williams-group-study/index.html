@@ -2,6 +2,15 @@
 <html lang="en">
 
   <head>
+    <script>
+      // Fix trailing slash so wouter router matches /williams-group-study correctly
+      (function() {
+        var p = window.location.pathname;
+        if (p.endsWith('/') && p.length > 1) {
+          history.replaceState(null, '', p.slice(0, -1) + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
